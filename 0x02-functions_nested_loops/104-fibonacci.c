@@ -15,7 +15,7 @@ int main(void)
 	first = 0;
 	second = 1;
 
-	for (turns = 0; turns <= 97; turns++)
+	for (turns = 0; turns <= 98; turns++)
 	{
 		sum = first + second;
 		printf("%li, ", sum);

@@ -20,12 +20,17 @@ int main(void)
 	for (turns = 0; turns <= 49; turns++)
 	{
 		sum = first + second;
-		printf("%li, ", sum);
+		printf("%li", sum);
 		first = second;
 		second = sum;
+
+		if (sum != 20365011074)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
-	sum = first + second;
-	printf("%li\n", sum);
+	putchar('\n');
 	return (0);
 
 }

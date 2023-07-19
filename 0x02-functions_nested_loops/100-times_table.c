@@ -9,13 +9,13 @@ void print_times_table(int n)
 {
 	int x, y, product;
 
-	if (n >= 0 && n < 15)
+	if (n >= 0 && n <= 15)
 	{
 		for (x = 0; x <= n; x++)
 		{
 			_putchar('0');
 
-			for (y = 0; y <= n; y++)
+			for (y = 1; y <= n; y++)
 			{
 				_putchar(',');
 				_putchar(' ');

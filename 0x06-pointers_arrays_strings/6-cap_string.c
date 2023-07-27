@@ -15,7 +15,7 @@ char *cap_string(char *m)
 	{
 		if (m[0] >= 97 && m[0] <= 122)
 		{
-			m[0] = (int)m[0] - 32;
+			m[0] = m[0] - 32;
 		}
 
 		if (m[i] == ' ' ||
@@ -34,7 +34,7 @@ char *cap_string(char *m)
 		{
 			if  (m[i + 1] >= 97 && m[i + 1] <= 122)
 			{
-				m[i + 1] = (int)m[i + 1] - 32;
+				m[i + 1] = m[i + 1] - 32;
 			}
 		}
 		i++;

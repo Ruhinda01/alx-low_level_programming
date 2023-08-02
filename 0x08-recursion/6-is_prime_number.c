@@ -4,7 +4,7 @@
  * find_prime - carru out more tests to find prime number
  * @number: number to be tested
  * @divisor: number to be used to divide the number
- * 
+ *
  * Return: 1 if prime and 0 if not
  */
 

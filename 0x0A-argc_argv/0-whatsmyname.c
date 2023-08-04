@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 /**
+ * main - main function
  * @argc: integer value
  * @argv: array to strings
  *

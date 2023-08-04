@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * @argc: argument count
- * @argv: argument array
+ * @argc: integer value
+ * @argv: array to strings
  *
  * Return: 0 (success)
  */

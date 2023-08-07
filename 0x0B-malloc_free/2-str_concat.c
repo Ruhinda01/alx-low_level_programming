@@ -43,9 +43,9 @@ char *str_concat(char *s1, char *s2)
 	if (combined == NULL)
 		return (NULL);
 
-	for (i = 0; i <= length1; i++)
+	for (i = 0; i < length1; i++)
 		combined[i] = s1[i];
-	for (j = 0; j <= length2; j++)
+	for (j = 0; j < length2; j++)
 		combined[length1 + j] = s2[j];
 	combined[length1 + j] = '\0';
 	return (combined);

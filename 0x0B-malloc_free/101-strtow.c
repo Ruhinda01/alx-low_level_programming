@@ -17,12 +17,9 @@ char **strtow(char *str)
 	char *s;
 	char **result;
 
-
 	len = 0;
 	if (str == NULL || *str == '\0')
-	{
 		return (NULL);
-	}
 	for (len = 0; str[len] != '\0'; len++)
 	{
 	}
@@ -30,26 +27,18 @@ char **strtow(char *str)
 	s = (char *)malloc(sizeof(char) * len);
 	if (s == NULL)
 		return (NULL);
-
 	result = (char **)malloc(sizeof(char *));
 	if (result == NULL)
-	{
 		free(s);
 		return (NULL);
-	}
-
 	for (i = 0; i < len ; i++)
 	{
 		if (str[i] != ' ')
-		{
 			s[j] = str[i];
 			j++;
-		}
 		else
-		{
 			s[i] = '\n';
 			j++;
-		}
 	}
 	s[j] = '\0';
 	result[0] = s;

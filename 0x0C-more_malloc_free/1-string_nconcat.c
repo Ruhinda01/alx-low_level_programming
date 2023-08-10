@@ -36,13 +36,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 	{
 		total_len = len1 + n;
+		len2 = n;
 	}
 	combined = (char *)malloc((total_len + 1) * sizeof(char));
 	if (combined == NULL)
 		return (NULL);
 	for (i = 0; i < len1; i++)
 		combined[i] = s1[i];
-	for (j = 0; j < n; j++)
+	for (j = 0; j < len2; j++)
 		combined[i + j] = s2[j];
 	combined[i + j] = '\0';
 	return (combined);

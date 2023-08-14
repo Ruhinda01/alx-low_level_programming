@@ -18,6 +18,8 @@ char *string_dup(char *src)
 	{
 	}
 	dest = (char *)malloc((len + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
 	for (i = 0; i < len; i++)
 	{
 		dest[i] = src[i];

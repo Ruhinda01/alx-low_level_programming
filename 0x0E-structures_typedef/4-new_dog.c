@@ -17,7 +17,7 @@ char *string_dup(char *src)
 	for (len = 0; src[len] != '\0'; len++)
 	{
 	}
-	dest =(char *)malloc((len + 1) * sizeof(char));
+	dest = (char *)malloc((len + 1) * sizeof(char));
 	for (i = 0; i < len; i++)
 	{
 		dest[i] = src[i];

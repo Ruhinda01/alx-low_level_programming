@@ -17,8 +17,8 @@ char *string_dup(char *src)
 	for (len = 0; src[len] != '\0'; len++)
 	{
 	}
-	dest = malloc((len + 1) * sizeof(char));
-	for (i = 0; i < len + 1; i++)
+	dest =(char *)malloc((len + 1) * sizeof(char));
+	for (i = 0; i < len; i++)
 	{
 		dest[i] = src[i];
 	}
@@ -50,8 +50,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	owner_dup = string_dup(owner);
 	if (owner_dup == NULL)
 	{
-		free(new_pup);
 		free(name_dup);
+		free(new_pup);
 		return (NULL);
 	}
 	(*new_pup).name = name_dup;

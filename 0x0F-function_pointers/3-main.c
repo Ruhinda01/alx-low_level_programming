@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
 
 	ptr = get_op_func(argv[2]);
 	if (ptr == NULL)
@@ -30,6 +28,8 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 	result = ptr(num1, num2);
 	printf("%d\n", result);
 	return (0);

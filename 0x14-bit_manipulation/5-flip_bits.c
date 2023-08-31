@@ -2,7 +2,7 @@
 /**
  * flip_bits - returns the number of bits you need to flip
  * @n: number
- * @m number to perform XOR
+ * @m: number to perform XOR
  * Return: the number of bits
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
@@ -12,7 +12,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	num = n ^ m;
 	count = 0;
-	while(num)
+	while (num)
 	{
 		count = count + (num & 1);
 		num = num >> 1;

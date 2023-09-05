@@ -71,6 +71,16 @@ void copyFile(int source, int destination, const char *src, const char *dest)
 		close(source);
 		exit(98);
 	}
+	if (close(source) == -1)
+	{
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", (int)source);
+		exit(100);
+	}
+	if (close(destination) == -1)
+	{
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", (int)destination);
+		exit(100);
+	}
 }
 /**
  * main - main function
@@ -93,15 +103,6 @@ int main(int argc, char *argv[])
 	source = openSrcFile(src);
 	destination = openDestFile(dest);
 	copyFile(source, destination, src, dest);
-	if (close(source) == -1)
-	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", (int)source);
-		exit(100);
-	}
-	if (close(destination) == -1)
-	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", (int)destination);
-		exit(100);
-	}
+
 	return (0);
 }

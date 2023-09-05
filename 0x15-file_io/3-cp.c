@@ -42,12 +42,21 @@ int openDestFile(const char *dest)
  */
 void copyFile(int source, int destination, const char *src, const char *dest)
 {
-	ssize_t Read, written;
+	ssize_t Read, written, remaining;
 	char buffer[BUF_SIZE];
+	char *writePtr;
 
 	while ((Read = read(source, buffer, sizeof(buffer))) > 0)
 	{
-		written = write(destination, buffer, Read);
+		writePtr = buffer;
+		remaining = Read;
+		while ((written = write(destination, writePtr, remaining)) > 0)
+		{
+			remaining = remaining - written;
+			writePtr = writePtr + written;
+			if (remaining == 0)
+				break;
+		}
 		if (written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);

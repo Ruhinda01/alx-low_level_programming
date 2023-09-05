@@ -42,21 +42,12 @@ int openDestFile(const char *dest)
  */
 void copyFile(int source, int destination, const char *src, const char *dest)
 {
-	ssize_t Read, written, remaining;
+	ssize_t Read, written;
 	char buffer[BUF_SIZE];
-	char *writePtr;
 
 	while ((Read = read(source, buffer, sizeof(buffer))) > 0)
 	{
-		writePtr = buffer;
-		remaining = Read;
-		while ((written = write(destination, writePtr, remaining)) > 0)
-		{
-			remaining = remaining - written;
-			writePtr = writePtr + written;
-			if (remaining == 0)
-				break;
-		}
+		written = write(destination, buffer, Read);
 		if (written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
@@ -67,19 +58,19 @@ void copyFile(int source, int destination, const char *src, const char *dest)
 	}
 	if (Read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", src);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		close(source);
 		close(destination);
 		exit(98);
 	}
 	if (close(source) == -1)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", source);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
 		exit(100);
 	}
 	if (close(destination) == -1)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", destination);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
 		exit(100);
 	}
 }

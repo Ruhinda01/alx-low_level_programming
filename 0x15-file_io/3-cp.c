@@ -53,7 +53,7 @@ void copyFile(int source, int destination, const char *src, const char *dest)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			close(source);
 			close(destination);
-			exit(98);
+			exit(99);
 		}
 	}
 	if (Read == -1)

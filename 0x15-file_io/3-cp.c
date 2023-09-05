@@ -74,11 +74,13 @@ void copyFile(int source, int destination, const char *src, const char *dest)
 	}
 	if (close(source) == -1)
 	{
+		perror("Error");
 		dprintf(STDERR_FILENO, "Can't close fd %d\n", source);
 		exit(100);
 	}
 	if (close(destination) == -1)
 	{
+		perror("Error");
 		dprintf(STDERR_FILENO, "Can't close fd %d\n", destination);
 		exit(100);
 	}

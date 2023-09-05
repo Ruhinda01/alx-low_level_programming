@@ -1,4 +1,5 @@
 #include "main.h"
+#include <sys/stat.h>
 #define BUF_SIZE 1024
 /**
  * openSrcFile - open source file
@@ -28,6 +29,10 @@ int openDestFile(const char *dest)
 	if (destination == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+		exit(99);
+	}
+	if (fchmod(destination, 0664) == -1)
+	{
 		exit(99);
 	}
 	return (destination);

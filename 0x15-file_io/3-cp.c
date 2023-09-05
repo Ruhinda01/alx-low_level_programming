@@ -60,7 +60,6 @@ void copyFile(int source, int destination, const char *src, const char *dest)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", src);
 		close(source);
-		close(destination);
 		exit(98);
 	}
 }
